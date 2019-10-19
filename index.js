@@ -20,7 +20,7 @@
  */
 
 'use strict';
-const mytoken = require('./config');
+//const mytoken = require('./config');
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 // Imports dependencies and set up http server
 const request = require('request'),
@@ -29,8 +29,10 @@ const request = require('request'),
   app = express().use(body_parser.json()); // creates express http server
 
 // Sets server port and logs message on success
-//app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
-app.listen(3000 || 1337, () => console.log('webhook is listening now'));
+app.listen(process.env.PORT || 1337, () =>
+  console.log('webhook is listening now')
+);
+//app.listen(3000 || 1337, () => console.log('webhook is listening now'));
 // Accepts POST requests at /webhook endpoint
 app.post('/webhook', (req, res) => {
   // Parse the request body from the POST
